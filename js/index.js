@@ -32,9 +32,33 @@ function totalCost() {
     const delivaryCost = document.getElementById('delivery-charge-cost').innerText;
     const totalCost = parseInt(bestPrice) + parseInt(extraMemoryCost) + parseInt(extraStorageCost) + parseInt(delivaryCost);
     document.getElementById('total-Cost').innerText = totalCost;
+    document.getElementById('final-total-price').innerText = totalCost;
+}
+// function promoCodeInput(e) {
+//     const promoCodeInput = document.getElementById('promo-code-input');
+//     console.log(promoCodeInput.value);
+// }
+// promo code stevekaku 
+function promoCode() {
+    const promoCodeInput = document.getElementById('promo-code-input');
+    const totalCost = document.getElementById('total-Cost').innerText;
+    console.log(totalCost);
+    const promoCodeText = promoCodeInput.value;
+    if (promoCodeText == 'stevekaku') {
+        const afterApplypromoCode = parseInt(totalCost) * (20 / 100);
+        document.getElementById('total-Cost').innerText = afterApplypromoCode;
+        document.getElementById('final-total-price').innerText = afterApplypromoCode;
+        document.getElementById('promo-code-apply-success').style.display = 'inline';
+        document.getElementById('promo-code-apply-fail').style.display = 'none';
+    }
+    else {
+        document.getElementById('promo-code-apply-success').style.display = 'none';
+        document.getElementById('promo-code-apply-fail').style.display = 'inline';
+    }
+    promoCodeInput.value = '';
 }
 
-// memory accessories button
+//accessories buttons
 document.getElementById('8gb-unified-memory').addEventListener('click', function () {
     acceccoriesCost('8gb-unified-memory');
     totalCost();
@@ -64,4 +88,8 @@ document.getElementById('free-delivery-cost').addEventListener('click', function
 document.getElementById('paid-delivery-cost').addEventListener('click', function () {
     acceccoriesCost('paid-delivery-cost');
     totalCost();
+});
+// promo code apply
+document.getElementById('promo-code-apply').addEventListener('click', function () {
+    promoCode();
 });

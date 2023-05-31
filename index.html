@@ -103,14 +103,22 @@
                     <!-- add promo code -->
                     <section>
                         <p>Add Promo Code</p>
-                        <input type="text" class="d-inline form-control w-25" id="">
-                        <button type="button" class="d-inline btn btn-danger">Apply</button>
+                        <input id="promo-code-input" type="text" class="d-inline form-control w-25">
+                        <button id="promo-code-apply" type="button" class="d-inline btn btn-danger">Apply</button>
+                        <div class="d-inline alert alert-success bg-white border-0" role="alert">
+                            <small id="promo-code-apply-success" class="fw-semibold text-success"
+                                style="display:none;">Promo Code Applied!</small>
+                        </div>
+                        <div class="d-inline alert alert-danger bg-white border-0" role="alert">
+                            <small id="promo-code-apply-fail" class="fw-semibold text-danger"
+                                style="display:none;">Promo Code Expired!</small>
+                        </div>
                     </section>
                 </div>
             </div>
             <hr>
             <div>
-                <h3 class="text-center">Total: $<span>1299</span></h3>
+                <h3 class="text-center">Total: $<span id="final-total-price">1299</span></h3>
             </div>
         </div>
     </main>
